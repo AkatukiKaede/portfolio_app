@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="my portfolio" />
+    <meta name="keywords" content="ポートフォリオ,portfolio" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <meta property="og:url" content="ページの URL" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content=" ページの タイトル" />
+    <meta property="og:description" content=" ページの説明文" />
+    <meta property="og:site_name" content="サイト名" />
+    <meta property="og:image" content=" サムネイル画像の URL" />
+  </head>
+
+  <!-- body -->
+  <body>
+    <div id="contents">
+      <header>
+        <h1><a href="index.html">Portfolio</a></h1>
+        <div id="backimg">
+          <img src="{% static 'images/image.png' %}" alt="backimage" />
+        </div>
+
+        <p>プログラマー/フロントエンドプログラマー/動画クリエイター</p>
+        <div id="profile">
+          <br />
+          <h1>嶋津 楓</h1>
+          <a href="https://twitter.com/Akatsuki__Kaede"
+            ><img src="{% static 'images/twittericon.png' %}" alt="twitter/x"
+          /></a>
+        </div>
+        <nav id="global_navi">
+          <ul>
+            <li><a href="{% url 'portfolio:index' %}">HOME</a></li>
+            <li><a href="{% url 'portfolio:collection' category=1 %}">授業制作</a></li>
+            <li><a href="{% url 'portfolio:collection' category=3 %}">My movie</a></li>
+            <li><a href="{% url 'portfolio:collection' category=2 %}">Work</a></li>
+            <li><a href="{% url 'portfolio:profile' %}">Profile</a></li>
+            <li><a href="{% url 'portfolio:contact' %}">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <!-- ヘッダーここまで -->
+      <div id="wrapper">
+        <!-- メイン -->
+        <div id="main">{% block contents %}{% endblock %}
+          <script src={% static 'scripts/main.js' %}></script>
+        </div>
+      </div>
+
+      <footer>
+        <div id="footer_nav">
+          <ul>
+            <li><a href="{% url 'portfolio:index' %}">HOME</a></li>
+            <li><a href="{% url 'portfolio:collection' category=1 %}">授業制作</a></li>
+            <li><a href="{% url 'portfolio:collection' category=3 %}">My movie</a></li>
+            <li><a href="{% url 'portfolio:collection' category=2 %}">Work</a></li>
+            <li><a href="{% url 'portfolio:profile' %}">Profile</a></li>
+            <li><a href="{% url 'portfolio:contact' %}">Contact</a></li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+    <!-- /contents -->
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block title %}Collection{% endblock %} 
+{% block contents %}
+<div id="collection">
+  <h1>{{object.title}}</h1>
+  <div id="detail">
+    <img src="{{ object.imag.url }}" />
+    <p id="content">{{object.content}}</p>
+  </div>
+    <p>制作年月:{{object.date}}</p>
+    <p>参考リンクは<a href="{{object.url}}" target="_blank">こちら</a></p>
+  
+</div>
+
+{% endblock %}
